@@ -90,22 +90,12 @@ def preprocess_batch_imgs(pil_images, img_h):
 
         return np.array(imgs_list_arr), input_length
 
-def inference_from_folder(printing=True):
+def inference_from_folder(lbl_to_char_dict, printing=True):
     """Do inference on images in a folder and print to screen"""
 
     #PARAMS
     img_h = 32
-    lbl_to_char_dict = {0: '0',
-                        1: '1',
-                        2: '2',
-                        3: '3',
-                        4: '4',
-                        5: '5',
-                        6: '6',
-                        7: '7',
-                        8: '8',
-                        9: '9'}
-            
+
     num_chars = len(lbl_to_char_dict)
 
     model = load_trained_model(img_h, num_chars)
